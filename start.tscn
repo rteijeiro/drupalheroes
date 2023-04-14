@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgakb885ownxs"]
+
+[ext_resource type="Script" path="res://start.gd" id="1_bgjte"]
+[ext_resource type="FontFile" uid="uid://dpffk72p52eyu" path="res://Fonts/Kaph-Regular.otf" id="2_hxdj5"]
+[ext_resource type="Texture2D" uid="uid://6o85soqx7qw2" path="res://Sprites/hd-wallpaper-g82535e8e3_1920.jpg" id="3_eaump"]
+
+[node name="Start" type="Node2D"]
+script = ExtResource("1_bgjte")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 750
+theme_override_constants/margin_top = 500
+theme_override_constants/margin_right = 750
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="Score" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_hxdj5")
+theme_override_font_sizes/font_size = 150
+text = "Drupal Heroes"
+horizontal_alignment = 1
+
+[node name="Start" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_hxdj5")
+theme_override_font_sizes/font_size = 150
+text = "Start"
+
+[node name="Wallpaper" type="Sprite2D" parent="."]
+position = Vector2(1463, 867)
+scale = Vector2(1.6213, 1.6213)
+texture = ExtResource("3_eaump")
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]

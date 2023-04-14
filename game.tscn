@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=3 uid="uid://bqcsxr2fcwu3d"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_wacqt"]
+[ext_resource type="Texture2D" uid="uid://6o85soqx7qw2" path="res://Sprites/hd-wallpaper-g82535e8e3_1920.jpg" id="2_ejwbi"]
+[ext_resource type="AudioStream" uid="uid://vq2122uyx814" path="res://Music/Patreon Goal Reward Loops - Track 08.wav" id="3_u1fbb"]
+[ext_resource type="FontFile" uid="uid://dpffk72p52eyu" path="res://Fonts/Kaph-Regular.otf" id="4_gpo88"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i8nqu"]
+size = Vector2(2947, 72.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vrw08"]
+size = Vector2(85, 1856)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_wacqt")
+
+[node name="Wallpaper" type="Sprite2D" parent="."]
+position = Vector2(1463, 867)
+scale = Vector2(1.6213, 1.6213)
+texture = ExtResource("2_ejwbi")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD"]
+offset_right = 323.0
+offset_bottom = 145.0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+
+[node name="HBoxContainer" type="VBoxContainer" parent="HUD/MarginContainer"]
+layout_mode = 2
+
+[node name="HeroesCount" type="Label" parent="HUD/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_gpo88")
+theme_override_font_sizes/font_size = 80
+text = "Time:"
+
+[node name="TimeCount" type="Label" parent="HUD/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_gpo88")
+theme_override_font_sizes/font_size = 80
+text = "Heroes:"
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(572, 1104)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(865, 658)
+shape = SubResource("RectangleShape2D_i8nqu")
+
+[node name="Roof" type="StaticBody2D" parent="."]
+position = Vector2(572, 1104)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Roof"]
+position = Vector2(885, -1141)
+shape = SubResource("RectangleShape2D_i8nqu")
+
+[node name="LeftWall" type="StaticBody2D" parent="."]
+position = Vector2(-39, 875)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
+position = Vector2(-3.5, -16)
+shape = SubResource("RectangleShape2D_vrw08")
+
+[node name="RightWall" type="StaticBody2D" parent="."]
+position = Vector2(2875, 869)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
+position = Vector2(37, -20)
+shape = SubResource("RectangleShape2D_vrw08")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_u1fbb")

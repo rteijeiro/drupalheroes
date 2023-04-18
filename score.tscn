@@ -39,22 +39,21 @@ horizontal_alignment = 1
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Name" type="TextEdit" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Name" type="LineEdit" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(428, 0)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-focus_neighbor_right = NodePath("../Submit")
+size_flags_horizontal = 10
 theme_override_fonts/font = ExtResource("1_7xas1")
-theme_override_font_sizes/font_size = 80
-placeholder_text = "ENTER YOUR NAME"
-highlight_current_line = true
-scroll_fit_content_height = true
-caret_type = 1
+theme_override_font_sizes/font_size = 50
+placeholder_text = "Your name"
+alignment = 1
+max_length = 255
+expand_to_text_length = true
 caret_blink = true
 
 [node name="Submit" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 2
 theme_override_fonts/font = ExtResource("1_7xas1")
 theme_override_font_sizes/font_size = 50
 text = "Submit"
